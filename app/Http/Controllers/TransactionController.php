@@ -12,4 +12,5 @@ class TransactionController extends Controller
         $data = transaction::all();
         return view('transaction.table', compact('data'));
     }
+    
 }
