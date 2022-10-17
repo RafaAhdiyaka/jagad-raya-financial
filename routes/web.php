@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\OutcomeController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,10 @@ use App\Http\Controllers\CategoryController;
 Route::get('/', function () {
     return view('layouts.main');
 });
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+
+
 
 // Transaction
 Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction');
