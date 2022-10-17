@@ -147,24 +147,24 @@
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
+            <li class="menu-item">
+              <a href="/category" class="menu-link">
+                <div data-i18n="Without navbar">Kategori</div>
+              </a>
+            </li>
                 <li class="menu-item">
                   <a href="/income" class="menu-link">
                     <div data-i18n="Without menu">Pemasukan</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="/category" class="menu-link">
-                    <div data-i18n="Without navbar">Kategori</div>
+                  <a href="/outcome" class="menu-link">
+                    <div data-i18n="Outcome">Pengeluaran</div>
                   </a>
                 </li>
                 <li class="menu-item">
                   <a href="/transaction" class="menu-link">
                     <div data-i18n="">Transaksi</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-fluid.html" class="menu-link">
-                    <div data-i18n="Fluid">Fluid</div>
                   </a>
                 </li>
                 <li class="menu-item">

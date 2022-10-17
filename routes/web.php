@@ -24,8 +24,6 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
-
-
 // Transaction
 Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction');
 Route::get('/transaction/add',[TransactionController::class, 'create'])->name('add-transaction');
@@ -49,3 +47,11 @@ Route::post('/category/insert',[CategoryController::class, 'store'])->name('inse
 Route::get('/category/form-edit/{id}',[CategoryController::class, 'edit'])->name('form-edit-category');
 Route::put('/category/update/{id}',[CategoryController::class, 'update'])->name('update-category');
 Route::get('/category/delete/{id}',[CategoryController::class, 'destroy'])->name('delete-category');
+
+// Pengeluaran
+Route::get('/outcome', [OutcomeController::class, 'index'])->name('outcome');
+Route::get('/outcome/add',[OutcomeController::class, 'create'])->name('add-outcome');
+Route::post('/outcome/insert',[OutcomeController::class, 'store'])->name('insert-outcome');
+Route::get('/outcome/form-edit/{id}',[OutcomeController::class, 'edit'])->name('form-edit-outcome');
+Route::put('/outcome/update/{id}',[OutcomeController::class, 'update'])->name('update-outcome');
+Route::get('/outcome/delete/{id}',[OutcomeController::class, 'destroy'])->name('delete-outcome');
