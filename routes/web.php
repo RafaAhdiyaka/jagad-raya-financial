@@ -6,6 +6,8 @@ use App\Http\Controllers\OutcomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +57,10 @@ Route::post('/outcome/insert',[OutcomeController::class, 'store'])->name('insert
 Route::get('/outcome/form-edit/{id}',[OutcomeController::class, 'edit'])->name('form-edit-outcome');
 Route::put('/outcome/update/{id}',[OutcomeController::class, 'update'])->name('update-outcome');
 Route::get('/outcome/delete/{id}',[OutcomeController::class, 'destroy'])->name('delete-outcome');
+
+// Login
+route::get('/login',[LoginController::class,'index'])->name('login');
+route::post('/login',[LoginController::class,'authenticate']);
+route::post('/logout',[LoginController::class,'logout']);
+route::get('/registrasi',[RegisterController::class,'index'])->name('registrasi');
+route::post('/registrasi',[RegisterController::class,'store']);

@@ -167,11 +167,6 @@
                     <div data-i18n="">Transaksi</div>
                   </a>
                 </li>
-                <li class="menu-item">
-                  <a href="layouts-blank.html" class="menu-link">
-                    <div data-i18n="Blank">Blank</div>
-                  </a>
-                </li>
 
             <!-- Layouts -->
             {{-- <li class="menu-item">
