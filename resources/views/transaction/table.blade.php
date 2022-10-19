@@ -57,7 +57,8 @@
                             @endforeach
                         </tbody>  
                     </table>
-                    {{-- {{ $kategoris->links() }} --}}
+                    <br>
+                    {{ $data->links() }}
                 </div>
             </div>
         </div>

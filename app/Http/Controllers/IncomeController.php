@@ -9,7 +9,7 @@ class IncomeController extends Controller
 {
     public function index(){
 
-    $data = income::all();
+    $data = income::paginate(5);
         return view('income.table', compact('data'));
     }
 

@@ -9,7 +9,7 @@ class TransactionController extends Controller
 {
     public function index(){
 
-        $data = transaction::all();
+        $data = transaction::paginate(5);
         return view('transaction.table', compact('data'));
     }
 

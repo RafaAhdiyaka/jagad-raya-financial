@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index(){
 
-        $data = category::all();
+        $data = category::paginate(5);
             return view('category.table', compact('data'));
         }
 

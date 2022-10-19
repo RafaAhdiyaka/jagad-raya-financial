@@ -9,7 +9,7 @@ class OutcomeController extends Controller
 {
     public function index(){
 
-        $data = outcome::all();
+        $data = outcome::paginate(5);
             return view('outcome.table', compact('data'));
         }
 
