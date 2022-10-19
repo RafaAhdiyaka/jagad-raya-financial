@@ -25,7 +25,7 @@
                             <label for="exampleInputEmail1" class="form-label">Jumlah</label>
                             <input type="text" name="jumlah_pemasukan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->jumlah_pemasukan }}">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary float-right" id="editButton">Submit</button>
                 </div>
             </div>
         </div>
