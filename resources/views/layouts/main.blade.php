@@ -63,6 +63,7 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/assets/js/config.js"></script>
+    {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
   </head>
 
   <body>
@@ -631,6 +632,7 @@
       
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
+
     <script src="/assets/vendor/libs/jquery/jquery.js"></script>
     <script src="/assets/vendor/libs/popper/popper.js"></script>
     <script src="/assets/vendor/js/bootstrap.js"></script>
@@ -650,5 +652,52 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </body>
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
+</body>
+<script>
+    $('#submitButton').on('click', function (e) {
+            e.preventDefault();
+            var form = $(this).parents('form');
+            swal({
+                icon: "warning",
+                title: "Are you sure?",
+                text: "Save this data definition?",
+                buttons: true,
+                dangerMode: true
+            }).then((isConfirm) => {
+                if (isConfirm) {
+                    form.submit();
+                    swal({
+                        icon: "success",
+                        title: 'Data successfully created!',
+                    });
+                }
+            });
+        });
+</script>
+<script>
+    $('#editButton').on('click', function (e) {
+            e.preventDefault();
+            var form = $(this).parents('form');
+            swal({
+                icon: "warning",
+                title: "Are you sure?",
+                text: "Edit this user definition?",
+                buttons: true,
+                dangerMode: true
+            }).then((isConfirm) => {
+                if (isConfirm) {
+                    form.submit();
+                    swal({
+                        icon: "success",
+                        title: 'User successfully edited!',
+                    });
+                }
+            });
+        });
+</script>
+
 </html>

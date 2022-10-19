@@ -22,13 +22,10 @@
                                 <th scope="col">Aksi</th>
                         </thead>
                         <tbody>
-                            @php
-                            $no = 1;
-                            @endphp
                             @foreach ($data as $row)
                             <tr>
                                 {{-- <th scope="row">{{ $index + $kategoris->firstItem() }}</th> --}}
-                                <td>{{ $row->id }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $row->tanggal }}</td>
                                 <td>{{ $row->kategori_id }}</td>
                                 <td>{{ $row->keterangan }}</td>
@@ -42,15 +39,13 @@
                                             </svg>
                                         </button>
                                     </a>
-                                    <a href="/transaction/delete/{{ $row->id }}" class="text-danger">
-                                        <button type="button" class="btn btn-icon rounded-circle btn-outline-danger">
-                                            <svg xmlns="http://www.w3.org/2000/svg" role="img" width="1em" height="1em" viewBox="0 0 24 24">
-                                                <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path d="M3 6h18" />
-                                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                                                </g>
-                                            </svg>
-                                        </button>
+                                    <a href="#" class="btn btn-icon rounded-circle btn-outline-danger delete" data-id="{{ $row->id }}" data-tanggal="{{ $row->tanggal }}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" role="img" width="1em" height="1em" viewBox="0 0 24 24">
+                                                    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M3 6h18" />
+                                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                                    </g>
+                                                </svg>
                                     </a>
                                 </td>
                             </tr>
@@ -64,4 +59,28 @@
         </div>
     </section>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
+<script>
+    $('.delete').click( function(){
+      var databaseid = $(this).attr('data-id'); 
+      var tanggalid = $(this).attr('data-tanggal'); 
+    swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this imaginary file! Id: "+databaseid+" Tanggal: "+tanggalid+"",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    })
+    .then((willDelete) => {
+    if (willDelete) {
+      window.location = "/transaction/delete/"+databaseid+""
+    swal("Poof! Your imaginary file has been deleted!", {
+    icon: "success",
+    });
+    } else {
+    swal("Your imaginary file is safe!");
+    }
+    });
+    });
+</script>
 @endsection

@@ -19,13 +19,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @php
-                            $no = 1;
-                            @endphp
                             @foreach ($data as $row)
                             <tr>
                                 {{-- <th scope="row">{{ $index + $kategoris->firstItem() }}</th> --}}
-                                <td>{{ $row->id }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $row->kategori }}</td>
                                 <td>
                                     <a href="/category/form-edit/{{ $row->id }}" class="text-warning">
@@ -35,8 +32,8 @@
                                             </svg>
                                         </button>
                                     </a>
-                                    <a href="/category/delete/{{ $row->id }}" class="text-danger">
-                                        <button type="button" class="btn btn-icon rounded-circle btn-outline-danger">
+                                    {{-- <a href="/category/delete/{{ $row->id }}" class="btn btn-danger delete">
+                                        <button type="button" class="btn btn-icon rounded-circle btn-outline-danger"  id="deleteButton">
                                             <svg xmlns="http://www.w3.org/2000/svg" role="img" width="1em" height="1em" viewBox="0 0 24 24">
                                                 <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                     <path d="M3 6h18" />
@@ -44,6 +41,15 @@
                                                 </g>
                                             </svg>
                                         </button>
+                                        delete
+                                    </a> --}}
+                                    <a href="#" class="btn btn-icon rounded-circle btn-outline-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->kategori }}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" role="img" width="1em" height="1em" viewBox="0 0 24 24">
+                                                    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M3 6h18" />
+                                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                                    </g>
+                                                </svg>
                                     </a>
                                 </td>
                             </tr>
@@ -57,4 +63,28 @@
         </div>
     </section>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
+<script>
+    $('.delete').click( function(){
+      var databaseid = $(this).attr('data-id'); 
+      var kategoriid = $(this).attr('data-nama'); 
+    swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover this imaginary file! Id: "+databaseid+" Kategori: "+kategoriid+"",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    })
+    .then((willDelete) => {
+    if (willDelete) {
+      window.location = "/category/delete/"+databaseid+""
+    swal("Poof! Your imaginary file has been deleted!", {
+    icon: "success",
+    });
+    } else {
+    swal("Your imaginary file is safe!");
+    }
+    });
+    });
+</script>
 @endsection
