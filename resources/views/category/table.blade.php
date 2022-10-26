@@ -6,6 +6,15 @@
 
 <div class="container mt-3">
     <a href="{{route('add-category')}}" type="button" class="btn btn-primary mb-3">+ Tambah Kategori</a>
+
+    <div class="row g-3 d-inline-flex" style="margin-left: 48vw; ">
+        <div class="col-auto">
+        <form action="/category" method="GET">
+            <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
+        </form>
+        </div>
+    </div>
+
     <section class="section">
         <div class="card">
             <div class="card-body">

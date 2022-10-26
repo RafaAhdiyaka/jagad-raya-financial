@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 
 class IncomeController extends Controller
 {
-    public function index(){
-
-    $data = income::paginate(5);
+    public function index(Request $request){
+        if($request->has('search')){
+            $data = income::where('keterangan','LIKE','%' .$request->search.'%')->paginate(15);
+        } else{
+            $data = income::paginate(15);
+        }
+    
         return view('income.table', compact('data'));
     }
 

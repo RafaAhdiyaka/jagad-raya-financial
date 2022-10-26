@@ -7,11 +7,17 @@ use Illuminate\Http\Request;
 
 class OutcomeController extends Controller
 {
-    public function index(){
 
-        $data = outcome::paginate(5);
-            return view('outcome.table', compact('data'));
+    public function index(Request $request){
+        if($request->has('search')){
+            $data = outcome::where('keterangan','LIKE','%' .$request->search.'%')->paginate(15);
+        } else{
+            $data = outcome::paginate(15);
         }
+    
+        return view('outcome.table', compact('data'));
+    }
+
 
         public function create(){
             return view('outcome.add');

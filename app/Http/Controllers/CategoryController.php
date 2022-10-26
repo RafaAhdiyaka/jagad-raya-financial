@@ -7,11 +7,16 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index(){
-
-        $data = category::paginate(5);
-            return view('category.table', compact('data'));
+    public function index(Request $request){
+        if($request->has('search')){
+            $data = category::where('kategori','LIKE','%' .$request->search.'%')->paginate(15);
+        } else{
+            $data = category::paginate(15);
         }
+    
+        return view('category.table', compact('data'));
+    }
+
 
         public function create(){
             return view('category.add');

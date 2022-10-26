@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
-    public function index(){
-
-        $data = transaction::paginate(5);
+    public function index(Request $request){
+        if($request->has('search')){
+            $data = transaction::where('keterangan','LIKE','%' .$request->search.'%')->paginate(15);
+        } else{
+            $data = transaction::paginate(15);
+        }
+    
         return view('transaction.table', compact('data'));
     }
 
