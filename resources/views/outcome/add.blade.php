@@ -32,7 +32,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Jumlah</label>
-                            <input type="text" name="jumlah_pengeluaran" class="form-control">
+                            <input type="text" id="dengan-rupiah" name="jumlah_pengeluaran" class="form-control">
                             @error('jumlah_pengeluaran')
                                 <div class="text-danger">
                                     {{ $message }}

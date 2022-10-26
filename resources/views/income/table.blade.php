@@ -7,12 +7,13 @@
 <div class="container mt-3">
     <div class="bungkus d-flex mb-4">
         <a href="{{route('add-income')}}" type="button" class="btn btn-primary">+ Tambah</a>
-    
+
         <div class="row g-3" style="margin-left: 54vw; ">
             <div class="col-auto">
-            <form action="/income" method="GET">
-                <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline" placeholder="Search...">
-            </form>
+                <form action="/income" method="GET">
+                    <input type="search" id="inputPassword6" name="search" class="form-control"
+                        aria-describedby="passwordHelpInline" placeholder="Search...">
+                </form>
             </div>
         </div>
     </div>

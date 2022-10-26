@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->date('tanggal');
             $table->string('keterangan');
-            $table->bigInteger('jumlah_pengeluaran');
+            $table->string('jumlah_pengeluaran');
             $table->timestamps();
         });
     }

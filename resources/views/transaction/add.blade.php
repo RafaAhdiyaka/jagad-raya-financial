@@ -41,7 +41,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Pemasukan</label>
-                            <input type="text" name="jumlah_pemasukan_id" class="form-control">
+                            <input type="text"  name="jumlah_pemasukan_id" class="form-control">
                             @error('jumlah_pemasukan_id')
                                 <div class="text-danger">
                                     {{ $message }}

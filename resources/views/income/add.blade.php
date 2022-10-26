@@ -16,27 +16,27 @@
                             <label for="exampleInputEmail1" class="form-label">Tanggal</label>
                             <input type="date" name="tanggal" class="form-control">
                             @error('tanggal')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Keterangan</label>
                             <input type="text" name="keterangan" class="form-control">
                             @error('keterangan')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Jumlah</label>
-                            <input type="text" name="jumlah_pemasukan" class="form-control">
+                            <input type="text" id="dengan-rupiah" name="jumlah_pemasukan" class="form-control" autofocus>
                             @error('jumlah_pemasukan')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
+                            <div class="text-danger">
+                                {{ $message }}
+                            </div>
                             @enderror
                         </div>
                         <button type="submit" class="btn btn-primary float-right" id="submitButton">Submit</button>
@@ -46,5 +46,29 @@
         </div>
     </div>
 </div>
+
+{{-- <script type="text/javascript">
+    var rupiah = document.getElementById('rupiah');
+    rupiah.addEventListener('keyup', function (e) {
+        rupiah.value = formatRupiah(this.value, 'Rp. ');
+    })
+
+    function formatRupiah(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, ' ').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+
+</script> --}}
 
 @endsection
