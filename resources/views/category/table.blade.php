@@ -5,13 +5,15 @@
 <h1 class="mt-3" style="margin-left: 23px">Data Kategori</h1>
 
 <div class="container mt-3">
-    <a href="{{route('add-category')}}" type="button" class="btn btn-primary mb-3">+ Tambah Kategori</a>
-
-    <div class="row g-3 d-inline-flex" style="margin-left: 48vw; ">
-        <div class="col-auto">
-        <form action="/category" method="GET">
-            <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
-        </form>
+    <div class="bungkus d-flex mb-4">
+        <a href="{{route('add-category')}}" type="button" class="btn btn-primary">+ Tambah</a>
+    
+        <div class="row g-3" style="margin-left: 54vw; ">
+            <div class="col-auto">
+            <form action="/category" method="GET">
+                <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline" placeholder="Search...">
+            </form>
+            </div>
         </div>
     </div>
 
