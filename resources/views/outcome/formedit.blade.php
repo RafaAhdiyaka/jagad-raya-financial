@@ -23,7 +23,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Jumlah</label>
-                            <input type="text" name="jumlah_pengeluaran" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->jumlah_pengeluaran }}">
+                            <input type="text" id="dengan-rupiah" name="jumlah_pengeluaran" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->jumlah_pengeluaran }}">
                         </div>
                         <button type="submit" class="btn btn-primary float-right" id="editButton">Submit</button>
                 </div>
