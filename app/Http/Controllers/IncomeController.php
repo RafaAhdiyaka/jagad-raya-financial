@@ -48,4 +48,11 @@ class IncomeController extends Controller
         $data->delete();
         return redirect()->route('income')->with('success', 'Data Berhasil Didelete');
     }
+
+    public function filter(Request $request){
+        $date = $request->get('sampai');
+        $data = income::where('tanggal', 'like', '%' . $date . '%')
+    ->paginate(10);
+    return view('transaction.table', compact('data'));
+    }
 }

@@ -13,6 +13,7 @@
         <form action="/transaction" method="GET">
             <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline" placeholder="Search...">
         </form>
+        <button type="button" class="btn btn-primary btn-sm px-5 mt-1" data-bs-toggle="modal" data-bs-target="#exampleModal">Tanggal</button>
         </div>
     </div>
 </div>
@@ -69,6 +70,34 @@
             </div>
         </div>
     </section>
+</div>
+<a href="/transaction" type="button" class="mt-4" style="margin-left: 24px">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(86, 106, 127, 1);transform: ;msFilter:;"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
+</a>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Filter Data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form role="form" method="GET" action="/filtertransaction">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Tanggal</label>
+                            <input type="date" class="form-control date-picker" id="exampleInputEmail1" placeholder="" name="sampai" value="{{ date('Y-m-d') }}">
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary mt-1">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
 <script>
