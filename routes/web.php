@@ -64,3 +64,10 @@ route::post('/login',[LoginController::class,'authenticate']);
 route::post('/logout',[LoginController::class,'logout']);
 route::get('/registrasi',[RegisterController::class,'index'])->name('registrasi');
 route::post('/registrasi',[RegisterController::class,'store']);
+
+
+// searchdate
+// Route::get('/filtercategory', [CategoryController::class, 'filter'])->name('filter');
+Route::get('/filterincome', [IncomeController::class, 'filter'])->name('filter');
+Route::get('/filteroutcome', [OutcomeController::class, 'filter'])->name('filter');
+Route::get('/filtertransaction', [TransactionController::class, 'filter'])->name('filter');

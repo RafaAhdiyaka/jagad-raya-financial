@@ -50,4 +50,11 @@ class OutcomeController extends Controller
             $data->delete();
             return redirect()->route('outcome')->with('success', 'Data Berhasil Didelete');
         }
+
+        public function filter(Request $request){
+            $date = $request->get('sampai');
+            $data = outcome::where('tanggal', 'like', '%' . $date . '%')
+            ->paginate(10);
+            return view('transaction.table', compact('data'));
+        }
 }
