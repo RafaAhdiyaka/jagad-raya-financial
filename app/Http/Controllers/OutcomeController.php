@@ -51,10 +51,15 @@ class OutcomeController extends Controller
             return redirect()->route('outcome')->with('success', 'Data Berhasil Didelete');
         }
 
-        public function filter(Request $request){
-            $date = $request->get('sampai');
-            $data = outcome::where('tanggal', 'like', '%' . $date . '%')
-            ->paginate(10);
-            return view('transaction.table', compact('data'));
+    public function filter(Request $request){
+        if (request()->dari || request()->sampai) {
+            $sampai = explode('-', request('sampai'));
+            $sampai = $sampai[0]. '-' . $sampai[1] . '-' . intval($sampai[2]);
+            $data = outcome::whereBetween('tanggal',[request('dari'), $sampai])->paginate(15);
+        } else {
+            $data = outcome::paginate(15);
         }
+
+        return view('outcome.table', compact('data'));
+    }
 }

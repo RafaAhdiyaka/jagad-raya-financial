@@ -50,9 +50,14 @@ class IncomeController extends Controller
     }
 
     public function filter(Request $request){
-        $date = $request->get('sampai');
-        $data = income::where('tanggal', 'like', '%' . $date . '%')
-    ->paginate(10);
-    return view('transaction.table', compact('data'));
+        if (request()->dari || request()->sampai) {
+            $sampai = explode('-', request('sampai'));
+            $sampai = $sampai[0]. '-' . $sampai[1] . '-' . intval($sampai[2]);
+            $data = income::whereBetween('tanggal',[request('dari'), $sampai])->paginate(15);
+        } else {
+            $data = income::paginate(15);
+        }
+
+        return view('income.table', compact('data'));
     }
 }
