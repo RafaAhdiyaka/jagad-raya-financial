@@ -52,9 +52,14 @@ class TransactionController extends Controller
     }
 
     public function filter(Request $request){
-        $date = $request->get('sampai');
-        $data = transaction::where('tanggal', 'like', '%' . $date . '%')
-        ->paginate(10);
+        if (request()->dari || request()->sampai) {
+            $sampai = explode('-', request('sampai'));
+            $sampai = $sampai[0]. '-' . $sampai[1] . '-' . intval($sampai[2]);
+            $data = transaction::whereBetween('tanggal',[request('dari'), $sampai])->paginate(15);
+        } else {
+            $data = transaction::paginate(15);
+        }
+
         return view('transaction.table', compact('data'));
     }
     

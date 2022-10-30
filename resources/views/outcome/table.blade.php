@@ -68,9 +68,6 @@
         </div>
     </section>
 </div>
-<a href="/outcome" type="button" class="mt-4" style="margin-left: 24px">
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(86, 106, 127, 1);transform: ;msFilter:;"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
-</a>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -82,8 +79,13 @@
                 <form role="form" method="GET" action="/filteroutcome">
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Tanggal</label>
-                            <input type="date" class="form-control date-picker" id="exampleInputEmail1" placeholder="" name="sampai" value="{{ date('Y-m-d') }}">
+                            <label for="exampleInputEmail1">Dari Tanggal</label>
+                            <input type="date" class="form-control date-picker" id="exampleInputEmail1" placeholder="Dari Tanggal" name="dari" value="{{ date('Y-m-d') }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Sampai Tanggal</label>
+                            <input type="date" class="form-control datepicker" id="exampleInputPassword1"
+                            placeholder="Sampai Tanggal" name="sampai" value="{{ date('Y-m-d') }}">
                         </div>
                     </div>
                     <!-- /.box-body -->
