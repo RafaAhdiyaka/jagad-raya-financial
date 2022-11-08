@@ -7,6 +7,7 @@
 <div class="container mt-3">
     <div class="bungkus d-flex mb-4">
         <a href="{{route('add-outcome')}}" type="button" class="btn btn-primary">+ Tambah </a>
+        <a href="{{route('pdf-outcome')}}" type="button" class="btn btn-danger" style="margin-left: 1vw">Export PDF</a>
     
         <div class="row g-3" style="margin-left: 54vw; ">
             <div class="col-auto">

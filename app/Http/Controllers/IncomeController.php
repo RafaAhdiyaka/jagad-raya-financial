@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\income;
 use Illuminate\Http\Request;
+use PDF;
 
 class IncomeController extends Controller
 {
@@ -59,5 +60,14 @@ class IncomeController extends Controller
         }
 
         return view('income.table', compact('data'));
+    }
+
+    public function exportpdf(){
+        $data = Income::all();
+
+       view()->share('data', $data);
+       $pdf = PDF::loadview('income.ipdf');
+       return $pdf->download('income.pdf');
+        return 'success';
     }
 }

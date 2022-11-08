@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\outcome;
 use Illuminate\Http\Request;
+use PDF;
 
 class OutcomeController extends Controller
 {
@@ -62,4 +63,14 @@ class OutcomeController extends Controller
 
         return view('outcome.table', compact('data'));
     }
+
+    public function exportpdf(){
+        $data = Outcome::all();
+
+       view()->share('data', $data);
+       $pdf = PDF::loadview('outcome.opdf');
+       return $pdf->download('outcome.pdf');
+        return 'success';
+    }
 }
+

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\category;
 use Illuminate\Http\Request;
+use PDF;
 
 class CategoryController extends Controller
 {
@@ -46,5 +47,14 @@ class CategoryController extends Controller
             $data = category::find($id);
             $data->delete();
             return redirect()->route('category')->with('success', 'Data Berhasil Didelete');
+        }
+
+        public function exportpdf(){
+            $data = Category::all();
+
+           view()->share('data', $data);
+           $pdf = PDF::loadview('category.cpdf');
+           return $pdf->download('category.pdf');
+            return 'success';
         }
 }

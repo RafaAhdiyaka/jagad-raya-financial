@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\transaction;
 use Illuminate\Http\Request;
+use PDF;
 
 class TransactionController extends Controller
 {
@@ -61,6 +62,15 @@ class TransactionController extends Controller
         }
 
         return view('transaction.table', compact('data'));
+    }
+
+    public function exportpdf(){
+        $data = Transaction::all();
+
+       view()->share('data', $data);
+       $pdf = PDF::loadview('transaction.tpdf');
+       return $pdf->download('transaction.pdf');
+        return 'success';
     }
     
 }
