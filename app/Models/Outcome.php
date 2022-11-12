@@ -11,4 +11,8 @@ class Outcome extends Model
 
     protected $table = 'outcomes';
     protected $guarded = [''];
+
+    public function transaction(){
+    return $this->hasMany(transaction::class);
+    }
 }

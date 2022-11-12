@@ -6,16 +6,23 @@
 
 <div class="container mt-3">
     <div class="bungkus d-flex mb-4">
-    <a href="{{route('add-transaction')}}" type="button" class="btn btn-primary">+ Tambah</a>
-    <a href="{{route('pdf-transaction')}}" type="button" class="btn btn-danger" style="margin-left: 1vw">Export PDF</a>
-
-    <div class="row g-3" style="margin-left: 53vw; ">
-        <div class="col-auto">
+    <div class="row g-1">
+        <a href="{{route('add-transaction')}}" type="button" class="btn btn-primary">+ Tambah</a>
+        <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Export
+            </button>
+    <ul class="dropdown-menu">
+        <li><a href="{{route('pdf-transaction')}}" type="button" class="dropdown-item">Export PDF</a></li>
+        <li><a href="" type="button" class="dropdown-item">Export EXCEL</a></li>
+    </ul>
+    </div>
+    </div>
+    <div class="row g-1" style="margin-left: 54vw; ">
         <form action="/transaction" method="GET">
             <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline" placeholder="Search...">
         </form>
-        <button type="button" class="btn btn-primary btn-sm px-5 mt-1" data-bs-toggle="modal" data-bs-target="#exampleModal">Tanggal</button>
-        </div>
+        <button type="button" class="btn btn-primary mt-1" data-bs-toggle="modal" data-bs-target="#exampleModal">Tanggal</button>
     </div>
 </div>
     <section class="section">
@@ -34,15 +41,15 @@
                                 <th scope="col">Aksi</th>
                         </thead>
                         <tbody>
-                            @foreach ($data as $row)
+                            @foreach ($transaksi as $row)
                             <tr>
                                 {{-- <th scope="row">{{ $index + $kategoris->firstItem() }}</th> --}}
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $row->tanggal }}</td>
-                                <td>{{ $row->kategori_id }}</td>
+                                <td>{{ $row->category->kategori }}</td>
                                 <td>{{ $row->keterangan }}</td>
-                                <td>{{ $row->jumlah_pemasukan_id }}</td>
-                                <td>{{ $row->jumlah_pengeluaran_id }}</td>
+                                <td>{{ $row->income->jumlah_pemasukan }}</td>
+                                <td>{{ $row->outcome->jumlah_pengeluaran }}</td>
                                 <td>
                                     <a href="/transaction/form-edit/{{ $row->id }}" class="text-warning">
                                         <button type="button" class="btn btn-icon rounded-circle btn-outline-warning">
@@ -65,7 +72,7 @@
                         </tbody>  
                     </table>
                     <br>
-                    {{ $data->links() }}
+                    {{-- {{ $data->links() }} --}}
                 </div>
             </div>
         </div>

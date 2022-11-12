@@ -6,17 +6,25 @@
 
 <div class="container mt-3">
     <div class="bungkus d-flex mb-4">
-        <a href="{{route('add-income')}}" type="button" class="btn btn-primary">+ Tambah</a>
-        <a href="{{route('pdf-income')}}" type="button" class="btn btn-danger" style="margin-left: 1vw">Export PDF</a>
+        <div class="row g-1">
+            <a href="{{route('add-income')}}" type="button" class="btn btn-primary">+ Tambah</a>
+            <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Export
+            </button>
+            <ul class="dropdown-menu">
+            <li><a href="{{route('pdf-income')}}" type="button" class="dropdown-item" style="margin-left: 1vw">Export PDF</a></li>
+            <li><a href="" type="button" class="dropdown-item" style="margin-left: 1vw">Export EXCEL</a></li>
+            </ul>
+            </div>
+        </div>
 
-        <div class="row g-3" style="margin-left: 54vw; ">
-            <div class="col-auto">
+        <div class="row g-1" style="margin-left: 54vw; ">
                 <form action="/income" method="GET">
                     <input type="search" id="inputPassword6" name="search" class="form-control"
                         aria-describedby="passwordHelpInline" placeholder="Search...">
                 </form>
-                <button type="button" class="btn btn-primary btn-sm px-5 mt-1" data-bs-toggle="modal" data-bs-target="#exampleModal">Tanggal</button>
-            </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Tanggal</button>
         </div>
     </div>
 

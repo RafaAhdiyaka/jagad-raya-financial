@@ -18,8 +18,8 @@ return new class extends Migration
             $table->date('tanggal');
             $table->foreignId('category_id');
             $table->string('keterangan');
-            $table->foreignId('jumlah_pemasukan_id');
-            $table->foreignId('jumlah_pengeluaran_id');
+            $table->foreignId('income_id');
+            $table->foreignId('outcome_id');
             $table->timestamps();
         });
     }
