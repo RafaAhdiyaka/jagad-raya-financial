@@ -12,4 +12,7 @@ class Income extends Model
     protected $table = 'incomes';
     protected $guarded = [''];
 
+    public function transaction(){
+    return $this->hasMany(transaction::class);
+    }
 }

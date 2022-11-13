@@ -12,4 +12,7 @@ class Category extends Model
     protected $table = 'categories';
     protected $guarded = [''];
 
+    public function transaction(){
+    return $this->hasMany(transaction::class);
+    }
 }

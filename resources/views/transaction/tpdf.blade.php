@@ -4,7 +4,7 @@
 <head>
     <style>
         #customers {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: fArial, Helvetica, sans-seri;
             border-collapse: collapse;
             width: 100%;
         }
@@ -52,7 +52,7 @@
             $no=1;
         @endphp
 
-        @foreach ($data as $row)
+        @foreach ($transaksi as $row)
         <tr>
             <td>{{ $no++ }}</td>
             <td>{{ $row->tanggal }}</td>

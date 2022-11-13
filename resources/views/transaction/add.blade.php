@@ -23,12 +23,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Kategori</label>
-                            <input type="text" name="category_id" class="form-control">
-                            @error('category_id')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                            <select class="form-select" name="category_id" id="room_id">
+                                @foreach ($category as $row)
+                                <option value="{{ $row->id }}">{{ $row->kategori }}</option>
+                                @endforeach
+                            </select>  
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Keterangan</label>
@@ -41,21 +40,19 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Pemasukan</label>
-                            <input type="text"  name="jumlah_pemasukan_id" class="form-control">
-                            @error('jumlah_pemasukan_id')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                            <select class="form-select" name="income_id" id="room_id">
+                                @foreach ($income as $row)
+                                <option value="{{ $row->id }}">{{ $row->jumlah_pemasukan }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Pengeluaran</label>
-                            <input type="text" name="jumlah_pengeluaran_id" class="form-control">
-                            @error('jumlah_pengeluaran_id')
-                                <div class="text-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                            <select class="form-select" name="outcome_id" id="room_id">
+                                @foreach ($outcome as $row)
+                                <option value="{{ $row->id }}">{{ $row->jumlah_pengeluaran }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary float-right" id="submitButton">Submit</button>
                     </form>

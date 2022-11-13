@@ -11,4 +11,14 @@ class Transaction extends Model
 
     protected $table = 'transactions';
     protected $guarded = [''];
+
+    public function category(){
+    return $this->belongsTo(Category::class);
+    }
+    public function income(){
+    return $this->belongsTo(Income::class);
+    }
+    public function outcome(){
+    return $this->belongsTo(Outcome::class);
+    }
 }
