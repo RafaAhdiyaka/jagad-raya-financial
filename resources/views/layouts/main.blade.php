@@ -527,8 +527,8 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">βασιλιάς κόλλας</span>
-                            <small class="text-muted">Chandra ελληνικής καταγωγής</small>
+                            <span class="fw-semibold d-block">{{ auth()->user()->name }}</span>
+                            <small class="text-muted">{{ auth()->user()->email }}</small>
                           </div>
                         </div>
                       </a>
@@ -561,10 +561,10 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="auth-login-basic.html">
-                        <i class="bx bx-power-off me-2"></i>
-                        <span class="align-middle">Log Out</span>
-                      </a>
+                      <form action="/logout" method="POST">
+                        @csrf
+                        <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-in-left"></i> Logout</button>
+                      </form>
                     </li>
                   </ul>
                 </li>

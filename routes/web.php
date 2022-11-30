@@ -61,8 +61,9 @@ Route::get('/outcome/form-edit/{id}',[OutcomeController::class, 'edit'])->name('
 Route::put('/outcome/update/{id}',[OutcomeController::class, 'update'])->name('update-outcome');
 Route::get('/outcome/delete/{id}',[OutcomeController::class, 'destroy'])->name('delete-outcome');
 Route::get('/outcome/exportpdf',[OutcomeController::class, 'exportpdf'])->name('pdf-outcome');
+
 // Login
-route::get('/login',[LoginController::class,'index'])->name('login');
+route::get('/login',[LoginController::class,'index'])->name('login')->middleware('guest');;
 route::post('/login',[LoginController::class,'authenticate']);
 route::post('/logout',[LoginController::class,'logout']);
 route::get('/registrasi',[RegisterController::class,'index'])->name('registrasi');
