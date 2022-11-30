@@ -138,14 +138,15 @@
               {{-- <h4 class="mb-2">Selamat datang di Financial </h4> --}}
               <p class="mb-4">Please sign-up your account </p>
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <form id="formAuthentication" class="mb-3" action="/registrasi" method="POST">
+                @csrf
                 <div class="mb-3">
                   <label for="email" class="form-label">Username</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="username"
-                    name="username"
+                    id="name"
+                    name="name"
                     placeholder="Enter your username"
                     autofocus
                   />
@@ -180,11 +181,12 @@
                 <div class="mb-3">
                   <button class="btn btn-primary d-grid w-100" type="submit">Sign up</button>
                 </div>
+              
               </form>
 
               <p class="text-center">
                 <span>Already have an account?</span>
-                <a href="auth-register-basic.html">
+                <a href="/login">
                   <span>Sign In</span>
                 </a>
               </p>

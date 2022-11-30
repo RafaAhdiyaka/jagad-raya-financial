@@ -138,25 +138,21 @@
               {{-- <h4 class="mb-2">Selamat datang di Financial </h4> --}}
               <p class="mb-4">Please sign-in to your account </p>
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <form id="formAuthentication" class="mb-3" action="/login" method="POST">
+                @csrf
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email or Username</label>
+                  <label for="email" class="form-label"> Username</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="email"
-                    name="email-username"
+                    id="name"
+                    name="name"
                     placeholder="Enter your email or username"
                     autofocus
                   />
                 </div>
                 <div class="mb-3 form-password-toggle">
-                  <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Password</label>
-                    <a href="auth-forgot-password-basic.html">
-                      <small>Forgot Password?</small>
-                    </a>
-                  </div>
+                  <label class="form-label" for="password">Password</label>
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
@@ -182,7 +178,7 @@
 
               <p class="text-center">
                 <span>Dont have an account?</span>
-                <a href="auth-register-basic.html">
+                <a href="/registrasi">
                   <span>Create</span>
                 </a>
               </p>
