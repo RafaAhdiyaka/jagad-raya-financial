@@ -21,9 +21,9 @@ use App\Http\Controllers\TransactionController;
 */
 
 Route::get('/', function () {
-    return view('layouts.main');
-});
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    return view('layouts.dashboard');
+})->middleware('isLogin');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('isLogin');
 
 
 // Transaction
@@ -63,7 +63,7 @@ Route::get('/outcome/delete/{id}',[OutcomeController::class, 'destroy'])->name('
 Route::get('/outcome/exportpdf',[OutcomeController::class, 'exportpdf'])->name('pdf-outcome');
 
 // Login
-route::get('/login',[LoginController::class,'index'])->name('login')->middleware('guest');;
+route::get('/login',[LoginController::class,'index'])->name('login');
 route::post('/login',[LoginController::class,'authenticate']);
 route::post('/logout',[LoginController::class,'logout']);
 route::get('/registrasi',[RegisterController::class,'index'])->name('registrasi');

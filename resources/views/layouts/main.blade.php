@@ -577,7 +577,9 @@
 
           <!-- Content wrapper -->
           <div class="main-content container-fluid">
+            @if (Auth::check())
             @yield('content')
+            @endif
             <!-- Content -->
             <!-- / Content -->
 
