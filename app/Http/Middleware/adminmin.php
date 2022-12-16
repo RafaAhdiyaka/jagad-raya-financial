@@ -3,11 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class isLogin
+class adminmin
 {
     /**
      * Handle an incoming request.
@@ -18,9 +16,11 @@ class isLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        // if (Auth::check()){
-        //     return $next($request);
-        // }
-        // return redirect('login')->withErrors('Silahkan Login Terlebih Dahulu');
+        if( auth()->guest() || auth()->user()->role !== 'admin'){
+        abort(403);
+        }
+        
+        return $next($request);
+        return redirect('login')->withErrors('Silahkan Login Terlebih Dahulu');
     }
 }

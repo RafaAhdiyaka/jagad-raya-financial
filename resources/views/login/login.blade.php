@@ -75,7 +75,7 @@
             <div class="card-body">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
+                <a href="/" class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
                     <svg
                       width="25"
@@ -136,7 +136,6 @@
               </div>
               <!-- /Logo -->
               {{-- <h4 class="mb-2">Selamat datang di Financial </h4> --}}
-              <p class="mb-4">Please sign-in to your account </p>
 
               <form id="formAuthentication" class="mb-3" action="/login" method="POST">
                 @csrf
@@ -175,13 +174,6 @@
                   <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                 </div>
               </form>
-
-              <p class="text-center">
-                <span>Dont have an account?</span>
-                <a href="/registrasi">
-                  <span>Create</span>
-                </a>
-              </p>
             </div>
           </div>
           <!-- /Register -->

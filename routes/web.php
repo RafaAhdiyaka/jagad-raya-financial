@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GrafikController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\OutcomeController;
 use App\Http\Controllers\CategoryController;
@@ -21,9 +23,13 @@ use App\Http\Controllers\TransactionController;
 */
 
 Route::get('/', function () {
+    return view('login.login');
+});
+Route::get('/dasboard', function () {
     return view('layouts.dashboard');
-})->middleware('isLogin');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('isLogin');
+});
+Route::get('/dashboardadmin', [DashboardController::class, 'index'])->name('dashboard')->middleware('admin');
+Route::get('/dashboardpengguna', [DashboardController::class, 'index'])->name('dashboard')->middleware('pengguna');
 
 
 // Transaction
@@ -63,7 +69,7 @@ Route::get('/outcome/delete/{id}',[OutcomeController::class, 'destroy'])->name('
 Route::get('/outcome/exportpdf',[OutcomeController::class, 'exportpdf'])->name('pdf-outcome');
 
 // Login
-route::get('/login',[LoginController::class,'index'])->name('login');
+route::get('/login',[LoginController::class,'index'])->name('login')->middleware('guest');
 route::post('/login',[LoginController::class,'authenticate']);
 route::post('/logout',[LoginController::class,'logout']);
 route::get('/registrasi',[RegisterController::class,'index'])->name('registrasi');
@@ -75,3 +81,15 @@ route::post('/registrasi',[RegisterController::class,'store']);
 Route::get('/filterincome', [IncomeController::class, 'filter'])->name('filter');
 Route::get('/filteroutcome', [OutcomeController::class, 'filter'])->name('filter');
 Route::get('/filtertransaction', [TransactionController::class, 'filter'])->name('filter');
+
+//grafik
+Route::get('/grafik', [GrafikController::class, 'handleChart']);
+
+//user
+Route::get('/user', [UserController::class, 'index'])->name('user');
+Route::get('/user/add',[UserController::class, 'create'])->name('add-user');
+Route::post('/user/insert',[UserController::class, 'store'])->name('insert-user');
+Route::get('/user/form-edit/{id}',[UserController::class, 'edit'])->name('form-edit-user');
+Route::put('/user/update/{id}',[UserController::class, 'update'])->name('update-user');
+Route::get('/user/delete/{id}',[UserController::class, 'destroy'])->name('delete-user');
+
