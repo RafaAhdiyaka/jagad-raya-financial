@@ -10,6 +10,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::get('/dasboard', function () {
 });
 Route::get('/dashboardadmin', [DashboardController::class, 'index'])->name('dashboard')->middleware('admin');
 Route::get('/dashboardpengguna', [DashboardController::class, 'index'])->name('dashboard')->middleware('pengguna');
+Route::get('/report',[ReportController::class,'report']);
 
 
 // Transaction
