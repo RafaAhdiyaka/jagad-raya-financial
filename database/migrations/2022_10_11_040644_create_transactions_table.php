@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal');
-            $table->foreignId('category_id');
             $table->string('keterangan');
             $table->foreignId('income_id');
             $table->foreignId('outcome_id');

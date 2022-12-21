@@ -6,10 +6,10 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GrafikController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\OutcomeController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ChartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,15 +50,6 @@ Route::put('/income/update/{id}',[IncomeController::class, 'update'])->name('upd
 Route::get('/income/delete/{id}',[IncomeController::class, 'destroy'])->name('delete-income');
 Route::get('/income/exportpdf',[IncomeController::class, 'exportpdf'])->name('pdf-income');
 
-// Kategori
-Route::get('/category', [CategoryController::class, 'index'])->name('category');
-Route::get('/category/add',[CategoryController::class, 'create'])->name('add-category');
-Route::post('/category/insert',[CategoryController::class, 'store'])->name('insert-category');
-Route::get('/category/form-edit/{id}',[CategoryController::class, 'edit'])->name('form-edit-category');
-Route::put('/category/update/{id}',[CategoryController::class, 'update'])->name('update-category');
-Route::get('/category/delete/{id}',[CategoryController::class, 'destroy'])->name('delete-category');
-Route::get('/category/exportpdf',[CategoryController::class, 'exportpdf'])->name('pdf-category');
-
 // Pengeluaran
 Route::get('/outcome', [OutcomeController::class, 'index'])->name('outcome');
 Route::get('/outcome/add',[OutcomeController::class, 'create'])->name('add-outcome');
@@ -92,4 +83,7 @@ Route::post('/user/insert',[UserController::class, 'store'])->name('insert-user'
 Route::get('/user/form-edit/{id}',[UserController::class, 'edit'])->name('form-edit-user');
 Route::put('/user/update/{id}',[UserController::class, 'update'])->name('update-user');
 Route::get('/user/delete/{id}',[UserController::class, 'destroy'])->name('delete-user');
+
+
+Route::get('/chart', 'ChartController@index');
 

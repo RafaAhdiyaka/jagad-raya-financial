@@ -42,7 +42,6 @@
         <tr>
             <th>No</th>
             <th>Tanggal</th>
-            <th>Kategori</th>
             <th>Keterangan</th>
             <th>Pemasukan</th>
             <th>Pengeluaran</th>
@@ -56,7 +55,6 @@
         <tr>
             <td>{{ $no++ }}</td>
             <td>{{ $row->tanggal }}</td>
-            <td>{{ $row->kategori_id }}</td>
             <td>{{ $row->keterangan }}</td>
             <td>{{ $row->jumlah_pemasukan_id }}</td>
             <td>{{ $row->jumlah_pengeluaran_id }}</td>

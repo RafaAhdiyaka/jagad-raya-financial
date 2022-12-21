@@ -13,7 +13,7 @@ class OutcomeController extends Controller
         if($request->has('search')){
             $data = outcome::where('keterangan','LIKE','%' .$request->search.'%')->paginate(15);
         } else{
-            $data = outcome::paginate(15);
+            $data = outcome::paginate(10);
         }
     
         return view('outcome.table', compact('data'));

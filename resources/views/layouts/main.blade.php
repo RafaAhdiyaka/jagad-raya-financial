@@ -158,12 +158,6 @@
               </a>
             </li>
             @endif
-            <li class="menu-item {{ Request::is('category*') ? 'active' : '' }}">
-              <a href="/category" class="menu-link">
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 24 24" style="fill: rgba(86, 106, 127, 1);transform: ;msFilter:;"><path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9 9H5V5h4v4zm11-6h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 6h-4V5h4v4zm-9 4H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zm-1 6H5v-4h4v4zm8-6c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z"></path></svg>
-                <div data-i18n="Without navbar">Kategori</div>
-              </a>
-            </li>
                 <li class="menu-item {{ Request::is('income*') ? 'active' : '' }}">
                   <a href="/income" class="menu-link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 24 24" style="fill: rgba(86, 106, 127, 1);transform: ;msFilter:;"><path d="m10.998 16 5-4-5-4v3h-9v2h9z"></path><path d="M12.999 2.999a8.938 8.938 0 0 0-6.364 2.637L8.049 7.05c1.322-1.322 3.08-2.051 4.95-2.051s3.628.729 4.95 2.051S20 10.13 20 12s-.729 3.628-2.051 4.95-3.08 2.051-4.95 2.051-3.628-.729-4.95-2.051l-1.414 1.414c1.699 1.7 3.959 2.637 6.364 2.637s4.665-.937 6.364-2.637C21.063 16.665 22 14.405 22 12s-.937-4.665-2.637-6.364a8.938 8.938 0 0 0-6.364-2.637z"></path></svg>
@@ -185,8 +179,9 @@
                 @if (auth()->user()->role == 'admin')
                 <li class="menu-item {{ Request::is('user*') ? 'active' : '' }}">
                   <a href="/user" class="menu-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 24 24" style="fill: rgba(86, 106, 127, 1);transform: ;msFilter:;"><path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9 9H5V5h4v4zm11-6h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 6h-4V5h4v4zm-9 4H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zm-1 6H5v-4h4v4zm8-6c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z"></path></svg>
                       
-                  <div data-i18n="">user</div>
+                  <div data-i18n=""> User</div>
                   </a>
                 </li>
                 @endif
@@ -630,6 +625,7 @@
         >Upgrade to Pro</a
         >
       </div> --}}
+      
     </div>
       
     <!-- Core JS -->

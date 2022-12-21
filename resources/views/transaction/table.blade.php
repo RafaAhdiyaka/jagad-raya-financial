@@ -34,7 +34,6 @@
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Tanggal</th>
-                                <th scope="col">Kategori</th>
                                 <th scope="col">Keterangan</th>
                                 <th scope="col">Pemasukan</th>
                                 <th scope="col">Pengeluaran</th>
@@ -46,7 +45,6 @@
                                 {{-- <th scope="row">{{ $index + $kategoris->firstItem() }}</th> --}}
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $row->tanggal }}</td>
-                                <td>{{ $row->category->kategori }}</td>
                                 <td>{{ $row->keterangan }}</td>
                                 <td>{{ $row->income->jumlah_pemasukan }}</td>
                                 <td>{{ $row->outcome->jumlah_pengeluaran }}</td>

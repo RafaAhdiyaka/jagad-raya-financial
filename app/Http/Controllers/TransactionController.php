@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Income;
 use App\Models\Outcome;
-use App\Models\Category;
 use App\Models\transaction;
 use Illuminate\Http\Request;
 use PDF;
@@ -13,18 +12,16 @@ class TransactionController extends Controller
 {
     public function index(Request $request){
         $transaksi = Transaction::all();
-        $category = Category::all();
         $income = Income::all();
         $outcome = Outcome::all();
         if($request->has('search')){
             $transaksi = transaction::where('keterangan','LIKE','%' .$request->search.'%')->paginate(15);
         } else{
-            $transaksi = transaction::paginate(15);
+            $transaksi = transaction::paginate(10);
         }
     
         return view('transaction.table',[
             'transaksi' => $transaksi,
-            'category' => $category,
             'income' => $income,
             'outcome' =>$outcome
         ],compact('transaksi'));
@@ -33,7 +30,6 @@ class TransactionController extends Controller
     public function create(){
         return view('transaction.add',[
             'transaksi' => Transaction::all(),
-            'category' => Category::all(),
             'income' => Income::all(),
             'outcome' => Outcome::all(),
         ]);
@@ -43,7 +39,6 @@ class TransactionController extends Controller
     public function store(Request $request){
         $this->validate($request, [
             'tanggal' => ['required'],
-            'category_id' => ['required'],
             'keterangan' => ['required'],
             'income_id' => ['required'],
             'outcome_id' => ['required'],
@@ -55,7 +50,6 @@ class TransactionController extends Controller
     public function edit($id){
         return view('transaction.formedit',[
         'transaksi' => Transaction::find($id),
-        'category' => Category::all(),
         'income' => Income::all()->sortBy('jumlah_pemasukan'),
         'outcome' => Outcome::all('jumlah_pengeluaran'),
         ]);

@@ -18,14 +18,6 @@
                             <input type="date" name="tanggal" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $transaksi->tanggal }}">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Kategori</label>
-                            <select class="form-select" name="kategori_id" id="room_id">
-                                @foreach ($category as $row)
-                                <option value="{{ $row->id }}">{{ $row->kategori }}</option>
-                                @endforeach
-                            </select>       
-                        </div>
-                        <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Keterangan</label>
                             <input type="text" name="keterangan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $transaksi->keterangan }}">
                         </div>
