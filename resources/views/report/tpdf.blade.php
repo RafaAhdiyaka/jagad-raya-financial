@@ -2,13 +2,12 @@
 <html>
 
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
     <style>
+        *{
+            font-family: 'Martian Mono', monospace;
+        }
         #customers {
-            font-family: 'Poppins', sans-serif;
-            border-collapse: collapse;
+            border-radius: 4cm;
             width: 100%;
         }
 
@@ -54,7 +53,7 @@
             $no=1;
         @endphp
 
-        @foreach ($transaksi as $row)
+        @foreach ($transaction as $row)
         <tr>
             <td>{{ $no++ }}</td>
             <td>{{ $row->tanggal }}</td>
@@ -71,5 +70,7 @@
     </table>
 
 </body>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap">
 </html>

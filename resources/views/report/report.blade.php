@@ -2,18 +2,6 @@
 @section('title', 'Tabel Laporan')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laporan</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
     <div class="container">
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -34,6 +22,11 @@
                         <h4 class="mt-5 ms-2">Jagad Raya</h4>
                     </div>
                 </div>
+                <div  style="margin-left: 64vw;">
+
+                    <button type="button" class="btn btn-primary mt-1" data-bs-toggle="modal" data-bs-target="#exampleModal">Tanggal</button>
+                </div>
+
             </div><!-- /.container-fluid -->
         </section>
 
@@ -85,17 +78,15 @@
                             <!-- /.row -->
 
                             <!-- this row will not appear when printing -->
-                            <div class="row no-print">
-                                <div class="col-12 ">
-                                    <a href="/invoice-print" rel="noopener" target="_blank"
-                                        class="btn btn-default float-right"></i> Print</a>
-
-                                    <button type="button" class="btn btn-primary float-right"
-                                        style="margin-right: 5px;">
-                                        <i class="fas fa-download"></i> Generate PDF
-                                    </button>
-                                </div>
-                            </div>
+        <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Export
+            </button>
+    <ul class="dropdown-menu">
+        <li><a href="{{route('pdf-report')}}" type="button" class="dropdown-item">Export PDF</a></li>
+        <li><a href="" type="button" class="dropdown-item">Export EXCEL</a></li>
+    </ul>
+    </div>
                         </div>
                         <!-- /.invoice -->
                     </div><!-- /.col -->
@@ -105,7 +96,35 @@
         <!-- /.content -->
     </div>
     </div>
-</body>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Filter Data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form role="form" method="GET" action="/filtertransaction">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Dari Tanggal</label>
+                            <input type="date" class="form-control date-picker" id="exampleInputEmail1" placeholder="Dari Tanggal" name="dari" value="{{ date('Y-m-d') }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Sampai Tanggal</label>
+                            <input type="date" class="form-control datepicker" id="exampleInputPassword1"
+                            placeholder="Sampai Tanggal" name="sampai" value="{{ date('Y-m-d') }}">
+                        </div>
+                    
+                    </div>
+                    <!-- /.box-body -->
 
-</html>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

@@ -89,3 +89,4 @@ Route::get('/user/delete/{id}',[UserController::class, 'destroy'])->name('delete
 
 Route::get('/chart', 'ChartController@index');
 
+Route::get('/report/exportpdf',[ReportController::class, 'exportpdf'])->name('pdf-report');

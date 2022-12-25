@@ -8,7 +8,7 @@
     <div class="bungkus d-flex mb-4">
     <div class="row g-1">
         <a href="{{route('add-transaction')}}" type="button" class="btn btn-primary">+ Tambah</a>
-        <div class="dropdown">
+        {{-- <div class="dropdown">
             <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Export
             </button>
@@ -16,13 +16,13 @@
         <li><a href="{{route('pdf-transaction')}}" type="button" class="dropdown-item">Export PDF</a></li>
         <li><a href="" type="button" class="dropdown-item">Export EXCEL</a></li>
     </ul>
-    </div>
+    </div> --}}
     </div>
     <div class="row g-1" style="margin-left: 54vw; ">
         <form action="/transaction" method="GET">
             <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline" placeholder="Search...">
         </form>
-        <button type="button" class="btn btn-primary mt-1" data-bs-toggle="modal" data-bs-target="#exampleModal">Tanggal</button>
+        {{-- <button type="button" class="btn btn-primary mt-1" data-bs-toggle="modal" data-bs-target="#exampleModal">Tanggal</button> --}}
     </div>
 </div>
     <section class="section">
@@ -76,7 +76,7 @@
         </div>
     </section>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -106,7 +106,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <script src="https://code.jquery.com/jquery-3.6.1.slim.js" integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
 <script>
     $('.delete').click( function(){
