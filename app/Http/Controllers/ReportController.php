@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use PDF;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Transaction;
-use App\Models\User;
 
 class ReportController extends Controller
 {
@@ -17,6 +18,27 @@ class ReportController extends Controller
             'user' => $user,
             'transaction' => $transaction
         ]);
+    }
+
+        public function filter(Request $request){
+        if (request()->dari || request()->sampai) {
+            $sampai = explode('-', request('sampai'));
+            $sampai = $sampai[0]. '-' . $sampai[1] . '-' . intval($sampai[2]);
+            $transaction = transaction::whereBetween('tanggal',[request('dari'), $sampai])->paginate(15);
+        } else {
+            $transaction = transaction::paginate(15);
+        }
+
+        return view('report.report',compact('transaction'));
+    }
+
+    public function exportpdf(){
+        $transaction = Transaction::all();
+
+       view()->share('transaction', $transaction);
+       $pdf = PDF::loadview('report.tpdf');
+       return $pdf->download('report.pdf');
+        return 'success';
     }
 
     // public function store(Request $request){
@@ -55,4 +77,5 @@ class ReportController extends Controller
     //         'kamar' => $kamar,
     //     ]);
     // }
+    
 }
