@@ -26,7 +26,7 @@ class IncomeController extends Controller
         $this->validate($request, [
             'tanggal' => 'required',
             'keterangan' => 'required',
-            'jumlah_pemasukan' => 'required',
+            'jumlah_pemasukan' => ['required','numeric'],
         ]);
         income::create($request->all());   
         return redirect()->route('income')->with('success', 'Data Berhasil Ditambahkan');

@@ -28,7 +28,7 @@ class OutcomeController extends Controller
             $this->validate($request, [
                 'tanggal' => 'required',
                 'keterangan' => 'required',
-                'jumlah_pengeluaran' => 'required',
+                'jumlah_pengeluaran' => ['required','numeric'],
             ]);
             outcome::create($request->all());   
             return redirect()->route('outcome')->with('success', 'Data Berhasil Ditambahkan');

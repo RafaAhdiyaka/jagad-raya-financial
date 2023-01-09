@@ -46,8 +46,8 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $row->tanggal }}</td>
                                 <td>{{ $row->keterangan }}</td>
-                                <td>{{ $row->income->jumlah_pemasukan }}</td>
-                                <td>{{ $row->outcome->jumlah_pengeluaran }}</td>
+                                <td>Rp {{ $row->income->jumlah_pemasukan }}</td>
+                                <td>Rp {{ $row->outcome->jumlah_pengeluaran }}</td>
                                 <td>
                                     <a href="/transaction/form-edit/{{ $row->id }}" class="text-warning">
                                         <button type="button" class="btn btn-icon rounded-circle btn-outline-warning">

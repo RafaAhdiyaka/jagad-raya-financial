@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use PDF;
 use App\Models\Transaction;
+use App\Models\Income;
+use App\Models\Outcome;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -16,11 +18,18 @@ class ReportController extends Controller
         $transaction = Transaction::all();
         return view('report.report',[
             'user' => $user,
-            'transaction' => $transaction
+            'transaction' => $transaction,
+            
         ]);
     }
 
-        public function filter(Request $request){
+    public function create(){
+        return view('transaction.add',[
+            'transaksi' => Transaction::all(),
+        ]);
+    }
+
+    public function filter(Request $request){
         if (request()->dari || request()->sampai) {
             $sampai = explode('-', request('sampai'));
             $sampai = $sampai[0]. '-' . $sampai[1] . '-' . intval($sampai[2]);
@@ -40,6 +49,8 @@ class ReportController extends Controller
        return $pdf->download('report.pdf');
         return 'success';
     }
+
+
 
     // public function store(Request $request){
     //     $validasi = $this->validate($request,[

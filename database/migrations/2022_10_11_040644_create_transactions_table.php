@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('keterangan');
             $table->foreignId('income_id');
             $table->foreignId('outcome_id');
+            $table->string('hasil');
             $table->timestamps();
         });
     }

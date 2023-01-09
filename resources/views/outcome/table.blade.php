@@ -48,7 +48,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $row->tanggal }}</td>
                                 <td>{{ $row->keterangan }}</td>
-                                <td>{{ $row->jumlah_pengeluaran }}</td>
+                                <td>{{ "Rp " . number_format($row->jumlah_pengeluaran,0,',','.') }}</td>
                                 <td>
                                     <a href="/outcome/form-edit/{{ $row->id }}" class="text-warning">
                                         <button type="button" class="btn btn-icon rounded-circle btn-outline-warning">
