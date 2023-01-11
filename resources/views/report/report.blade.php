@@ -57,19 +57,38 @@
                                                 <th>Keterangan</th>
                                                 <th>Pemasukan</th>
                                                 <th>Pengeluaran</th>
+                                                <th>Hasil</th>
                                                 {{-- <th>Prices</th>
                                                 <th>Total</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php
+                                                $grand = 0;
+                                                $income= 0;
+                                                $outcome = 0;
+                                            @endphp
                                             @foreach($transaction as $row)
                                             <tr>
                                                 <td>{{ $row->tanggal }}</td>
                                                 <td>{{ $row->keterangan }}</td>
-                                                <td>{{ $row->income->jumlah_pemasukan }}</td>
-                                                <td>{{ $row->outcome->jumlah_pengeluaran }}</td>
+                                                <td>{{ "Rp " . number_format($row->income->jumlah_pemasukan,0,',','.') }}</td>
+                                                <td>{{ "Rp " . number_format($row->outcome->jumlah_pengeluaran,0,',','.') }}</td>
+                                                <td>{{ "Rp " . number_format($row->hasil,0,',','.') }}</td>
                                             </tr>
+                                            @php
+                                                $grand += $row->hasil;
+                                                $income += $row->income->jumlah_pemasukan;
+                                                $outcome += $row->outcome->jumlah_pengeluaran;
+                                            @endphp
+                                            
                                             @endforeach
+                                            <tr>
+                                                <td colspan="2" class="text-center"><strong>Grand Total</strong></td>
+                                                <td><strong>{{ "Rp " . number_format($income,0,',','.') }}</strong></td>
+                                                <td><strong>{{ "Rp " . number_format($outcome,0,',','.') }}</strong></td>
+                                                <td><strong>{{ "Rp " . number_format($grand,0,',','.') }}</strong></td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>

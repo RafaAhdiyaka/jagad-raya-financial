@@ -37,13 +37,17 @@ class TransactionController extends Controller
 
 
     public function store(Request $request){
-        $this->validate($request, [
+        $validasi = $this->validate($request, [
             'tanggal' => ['required'],
             'keterangan' => ['required'],
             'income_id' => ['required'],
             'outcome_id' => ['required'],
         ]);
-        Transaction::create($request->all());
+        $income = Income::where('id',$request->income_id)->first();
+        $outcome = Outcome::where('id',$request->outcome_id)->first();
+        $validasi['hasil'] = $income->jumlah_pemasukan - $outcome->jumlah_pengeluaran;
+        
+        Transaction::create($validasi);
         return redirect()->route('transaction')->with('success', 'Data Berhasil Ditambahkan');
     }
 
